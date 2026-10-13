@@ -1,0 +1,59 @@
+name: BTHomeControl
+options:
+  bundleIdPrefix: com.elias
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    # Ad-hoc "Sign to Run Locally" until an Apple ID team is set up in Xcode.
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "-"
+    DEVELOPMENT_TEAM: ""
+    ENABLE_HARDENED_RUNTIME: YES
+targets:
+  BTHomeControl:
+    type: application
+    platform: macOS
+    sources: [BTHomeControl, Shared]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.elias.bthomecontrol
+        PRODUCT_NAME: BT Home Control
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    info:
+      path: BTHomeControl/Info.plist
+      properties:
+        CFBundleDisplayName: BT Home Control
+        NSBluetoothAlwaysUsageDescription: BT Home Control uses Bluetooth to find and control your smart devices.
+    entitlements:
+      path: BTHomeControl/BTHomeControl.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.device.bluetooth: true
+        com.apple.security.network.server: true
+    dependencies:
+      - target: BTHomeControlWidget
+  BTHomeControlWidget:
+    type: app-extension
+    platform: macOS
+    sources: [BTHomeControlWidget, Shared]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.elias.bthomecontrol.widget
+    info:
+      path: BTHomeControlWidget/Info.plist
+      properties:
+        CFBundleDisplayName: BT Home Control
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: BTHomeControlWidget/BTHomeControlWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
