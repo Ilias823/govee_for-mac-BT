@@ -2,7 +2,7 @@ name: BTHomeControl
 options:
   bundleIdPrefix: com.elias
   deploymentTarget:
-    macOS: "14.0"
+    macOS: "15.0"
   createIntermediateGroups: true
 settings:
   base:
@@ -28,6 +28,7 @@ targets:
       path: BTHomeControl/Info.plist
       properties:
         CFBundleDisplayName: BT Home Control
+        LSUIElement: true
         NSBluetoothAlwaysUsageDescription: BT Home Control uses Bluetooth to find and control your smart devices.
     entitlements:
       path: BTHomeControl/BTHomeControl.entitlements

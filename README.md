@@ -1,8 +1,7 @@
 # BT Home Control
 
-A small macOS app that controls Govee Bluetooth lights directly from a Mac, including older
-Bluetooth-only models that Apple's Home app doesn't recognise. It has a main window, a menu bar
-popover and a desktop widget.
+A small macOS menu bar app that controls Govee Bluetooth lights directly from a Mac, including older
+Bluetooth-only models that Apple's Home app doesn't recognise. It lives in the menu bar and has a desktop widget.
 
 ## Features
 
@@ -20,14 +19,15 @@ popover and a desktop widget.
 
 ## Building
 
-Requires macOS 14 or later, Xcode, and [XcodeGen](https://github.com/yonaskolb/XcodeGen).
+Requires macOS 15 or later, Xcode, and [XcodeGen](https://github.com/yonaskolb/XcodeGen).
 
 ```bash
 brew install xcodegen
-xcodegen generate
-xcodebuild -project BTHomeControl.xcodeproj -scheme BTHomeControl -derivedDataPath build build
-open "build/Build/Products/Debug/BT Home Control.app"
+./install.sh
 ```
+
+`install.sh` builds a release copy, installs it into `/Applications` and launches it. The app has no Dock
+icon; look for the lightbulb in the menu bar.
 
 The project is set up for ad-hoc signing ("Sign to Run Locally"), so no Apple developer account is needed.
 
@@ -46,3 +46,7 @@ The project is set up for ad-hoc signing ("Sign to Run Locally"), so no Apple de
 - Close the Govee phone app before connecting; a light accepts one Bluetooth connection at a time.
 - The app shows the last state it sent, not the light's real state.
 - Not affiliated with Govee.
+
+## License
+
+[MIT](LICENSE)

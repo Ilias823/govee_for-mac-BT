@@ -17,7 +17,7 @@ struct DevicesView: View {
                 ContentUnavailableView {
                     Label("No devices yet", systemImage: "lightbulb")
                 } description: {
-                    Text(compact ? "Open BT Home Control to add a device." : "Add a nearby Bluetooth light to get started.")
+                    Text(compact ? "Choose Manage devices to add a light." : "Add a nearby Bluetooth light to get started.")
                 } actions: {
                     if !compact { Button("Add device") { isAdding = true } }
                 }
@@ -34,7 +34,7 @@ struct DevicesView: View {
             if compact {
                 Divider()
                 HStack {
-                    Button("Open BT Home Control") {
+                    Button("Manage devices…") {
                         openWindow(id: "main")
                         NSApplication.shared.activate()
                     }

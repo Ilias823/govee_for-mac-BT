@@ -20,6 +20,8 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSUIElement</key>
+	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>BT Home Control uses Bluetooth to find and control your smart devices.</string>
 </dict>
