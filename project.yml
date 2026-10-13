@@ -7,7 +7,7 @@ options:
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    MARKETING_VERSION: "0.1.0"
+    MARKETING_VERSION: "1.0.0"
     CURRENT_PROJECT_VERSION: "1"
     # Ad-hoc "Sign to Run Locally" until an Apple ID team is set up in Xcode.
     CODE_SIGN_STYLE: Automatic
@@ -28,6 +28,8 @@ targets:
       path: BTHomeControl/Info.plist
       properties:
         CFBundleDisplayName: BT Home Control
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         LSUIElement: true
         NSBluetoothAlwaysUsageDescription: BT Home Control uses Bluetooth to find and control your smart devices.
     entitlements:
@@ -49,6 +51,8 @@ targets:
       path: BTHomeControlWidget/Info.plist
       properties:
         CFBundleDisplayName: BT Home Control
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSAppTransportSecurity:
           NSAllowsLocalNetworking: true
         NSExtension:
